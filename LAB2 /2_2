@@ -1,0 +1,36 @@
+#include <iostream>
+
+using namespace std;
+
+// Recursive function to return the nth Fibonacci number
+// Formula: F(n) = F(n-1) + F(n-2)
+long long fibonacciRecursive(int n) {
+    // Base Case: If n is 0 or 1, return n directly
+    if (n <= 1) {
+        return n;
+    }
+    // Recursive Step: Sum of the two preceding numbers
+    return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of terms (n): ";
+    cin >> n;
+
+    cout << "Fibonacci Sequence (Recursive): ";
+
+    // Since the recursive function only returns ONE number at a time,
+    // we need a loop to print the entire sequence from 0 to n.
+    for (int i = 0; i <= n; ++i) {
+        cout << fibonacciRecursive(i);
+        
+        // Add a comma separator unless it's the last element
+        if (i < n) {
+            cout << ", ";
+        }
+    }
+    cout << endl;
+
+    return 0;
+}
